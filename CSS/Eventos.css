@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  padding-bottom: 4rem; /* espacio para el nav fijo */
+}
+
+.Eventos {
+  padding: 1rem;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.evento-card {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.evento-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.evento-info {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.evento-info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.evento-info a {
+  font-size: 0.85rem;
+  color: #007BFF;
+  text-decoration: none;
+  margin-top: 0.4rem;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  font-size: 0.7rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  color: #000;
+}

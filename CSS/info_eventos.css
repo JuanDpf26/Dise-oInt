@@ -1,0 +1,140 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  padding-bottom: 60px; /* espacio para nav fijo */
+}
+
+/* Encabezado superior */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0047ab;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.flecha,
+.menu {
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  width: 2rem;
+  text-align: center;
+}
+
+/* Para evitar que la flecha empuje el título */
+.flecha {
+  margin-right: auto;
+}
+
+.menu {
+  margin-left: auto;
+}
+
+/* Contenido principal */
+.contenido {
+  padding: 1rem;
+}
+
+/* Tarjeta del evento */
+.tarjeta {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 1rem;
+}
+
+.imagen-evento {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.tarjeta h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+/* Estrellas */
+.estrellas {
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+.estrella.apagada {
+  color: #ccc;
+}
+
+/* Descripción */
+.descripcion {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Botón de compra */
+.boton {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #e03e3e;
+}
+
+/* Navegación inferior */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.bottom-nav a {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.bottom-nav a:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+

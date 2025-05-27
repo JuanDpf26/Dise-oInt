@@ -1,0 +1,98 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Fondo responsivo */
+.contenedor {
+  background-image: url(../IMG/Bogota_principal.jpg); /* Cambia según tu ruta */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.contenido {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+}
+
+.titulo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.globo {
+  font-size: 2.5rem;
+  vertical-align: middle;
+}
+
+.boton {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; /* Añadido para separar del texto debajo */
+  padding: 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #ddd;
+}
+
+.registro {
+  margin-top: 3rem; /* Espaciado aumentado para separar del botón */
+  font-size: 0.9rem;
+  display: block;
+}
+
+.registro a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (min-width: 600px) {
+  .titulo {
+    font-size: 3rem;
+  }
+
+  .globo {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contenido {
+    max-width: 500px;
+    padding: 3rem;
+  }
+
+  .boton {
+    font-size: 1.1rem;
+  }
+}
