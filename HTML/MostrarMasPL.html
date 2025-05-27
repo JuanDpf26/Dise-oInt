@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información del Evento</title>
+  <link rel="stylesheet" href="../CSS/MostrarMas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<style>
+  .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+ </style>
+<body>
+
+  <header>
+    <a href="Turismo.html" class="flecha"><i class="fas fa-arrow-left"></i></a>
+    <h1>Plaza de Bolívar</h1>
+    <span class="menu"><i class="fas fa-bars"></i></span>
+  </header>
+
+  <div class="contenido">
+    <img src="../IMG/plaza2.jpeg" alt="Plaza de Bolívar" class="imagen-evento">
+
+    <p class="descripcion">
+      La Plaza de Bolívar es el corazón histórico y político de Bogotá. Rodeada de edificaciones emblemáticas como el Capitolio Nacional, la Catedral Primada y el Palacio de Justicia, es un lugar imperdible para conocer el centro de la vida cívica de Colombia.
+    </p>
+
+    <div class="seccion">
+      <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+      <p><strong>Dirección:</strong> Cra. 7 #11-10, Bogotá, Colombia.</p>
+      <p><strong>Coordenadas:</strong> 4.5981° N, 74.0760° W</p>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-route"></i> ¿Cómo llegar?</h3>
+      <ul>
+        <li><strong>A pie:</strong> Fácil acceso desde cualquier punto del centro histórico.</li>
+        <li><strong>TransMilenio:</strong> Estaciones Museo del Oro, Las Aguas o Universidades.</li>
+        <li><strong>Bus:</strong> Rutas SITP por la Carrera 7 y la Avenida Jiménez.</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-clock"></i> Horarios</h3>
+      <ul>
+        <li><strong>Abierta al público:</strong> Todos los días, 24 horas.</li>
+        <li><strong>Recomendado:</strong> Visitar entre 7:00 a.m. y 9:00 p.m. por seguridad y mejor experiencia.</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-ticket-alt"></i> Entrada</h3>
+      <ul>
+        <li>🔸 <strong>Acceso libre:</strong> Entrada gratuita para todo el público.</li>
+        <li>🔸 <strong>Eventos especiales:</strong> Algunos eventos o exposiciones pueden tener costo.</li>
+      </ul>
+    </div>
+
+    <div class="carrusel">
+      <img src="../IMG/plaza1.jpg" alt="Vista general">
+      <img src="../IMG/Plaza2.1.jpg" alt="Catedral Primada">
+      <img src="../IMG/Plaza3.jpg" alt="Capitolio Nacional">
+      <img src="../IMG/plaza2.jpeg" alt="Palacio de Justicia">
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+  
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+</body>
+</html>

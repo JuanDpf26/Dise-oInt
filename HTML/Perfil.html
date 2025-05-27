@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil - Tour Vision</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      padding-bottom: 5rem;
+      margin: 0;
+    }
+
+    .perfil {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .titulo {
+      font-size: 2rem;
+      color: #0047ab;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .usuario-info {
+      text-align: center;
+    }
+
+    .usuario-info img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+
+    .perfil-opciones {
+      margin-top: 2rem;
+    }
+
+    .opcion {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      font-size: 1rem;
+    }
+
+    .seccion h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      color: #0047ab;
+    }
+
+    .eventos-guardados, #lista-lugares-guardados {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .evento-guardado, .lugar-guardado {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+      justify-content: space-between;
+    }
+
+    .evento-guardado img, .lugar-guardado img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .evento-info-text, .lugar-info-text {
+      flex-grow: 1;
+    }
+
+    .evento-guardado h4, .lugar-guardado h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .evento-guardado a, .lugar-guardado a {
+      color: #0077ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-eliminar {
+      background-color: #ff4d4d;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-eliminar:hover {
+      background-color: #cc0000;
+    }
+
+    .btn-cerrar-sesion {
+      display: block;
+      width: 100%;
+      margin: 2rem auto 0;
+      padding: 0.8rem;
+      background-color: #0047ab;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-cerrar-sesion:hover {
+      background-color: #002f7a;
+    }
+
+     /* Bottom nav */
+     .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="perfil">
+    <h2 class="titulo">Mi Perfil</h2>
+
+    <div class="usuario-info">
+      <img src="../IMG/Shrek.jpeg" alt="Foto de perfil" />
+      <h3 id="nombre-usuario">Cargando...</h3>
+      <p id="correo-usuario">---</p>
+    </div>
+
+    <div class="lugares-guardados seccion">
+      <h3>📍 Lugares guardados</h3>
+      <div id="lista-lugares-guardados"></div>
+    </div>
+
+    <div class="mis-eventos seccion">
+      <h3>🎟️ Mis eventos</h3>
+      <div id="eventos-guardados" class="eventos-guardados"></div>
+    </div>
+
+    <button class="btn-cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('../PHP/Perfil.php')
+        
+        .then(res => res.json())
+        .then(data => {
+          const nombre = document.getElementById('nombre-usuario');
+          const correo = document.getElementById('correo-usuario');
+
+          if (data.error) {
+            nombre.textContent = "Sesión iniciada como invitado";
+            correo.textContent = "---";
+          } else {
+            nombre.textContent = data.nombre + ' ' + data.apellido;
+            correo.textContent = data.correo;
+          }
+        })
+        .catch(err => {
+          console.error('Error al cargar perfil:', err);
+          document.getElementById('nombre-usuario').textContent = "Error al cargar perfil";
+        });
+
+      // Cargar eventos guardados
+      const eventosCont = document.getElementById('eventos-guardados');
+      let eventos = JSON.parse(localStorage.getItem('misEventos')) || [];
+
+      if (eventos.length === 0) {
+        eventosCont.innerHTML = '<p style="color:gray;">No tienes eventos guardados.</p>';
+      } else {
+        eventos.forEach((ev, index) => {
+          const div = document.createElement('div');
+          div.classList.add('evento-guardado');
+          div.innerHTML = `
+            <img src="${ev.img}" alt="${ev.nombre}" />
+            <div class="evento-info-text">
+              <h4>${ev.nombre}</h4>
+              <a href="${ev.link}">Ver detalles</a>
+            </div>
+            <button class="btn-eliminar" data-tipo="evento" data-index="${index}">Eliminar</button>
+          `;
+          eventosCont.appendChild(div);
+        });
+      }
+
+      // Cargar lugares guardados
+      const lugaresCont = document.getElementById('lista-lugares-guardados');
+      let lugares = JSON.parse(localStorage.getItem('misLugares')) || [];
+
+      if (lugares.length === 0) {
+        lugaresCont.innerHTML = '<p style="color:gray;">No tienes lugares guardados.</p>';
+      } else {
+        lugares.forEach((lug, index) => {
+          const div = document.createElement('div');
+          div.classList.add('lugar-guardado');
+          div.innerHTML = `
+            <img src="${lug.img}" alt="${lug.nombre}" />
+            <div class="lugar-info-text">
+              <h4>${lug.nombre}</h4>
+              <a href="${lug.link || '#'}">Ver detalles</a>
+            </div>
+            <button class="btn-eliminar" data-tipo="lugar" data-index="${index}">Eliminar</button>
+          `;
+          lugaresCont.appendChild(div);
+        });
+      }
+
+      // Eliminar botones
+      document.body.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-eliminar')) {
+          const tipo = e.target.dataset.tipo;
+          const index = parseInt(e.target.dataset.index);
+
+          if (tipo === 'evento') {
+            eventos.splice(index, 1);
+            localStorage.setItem('misEventos', JSON.stringify(eventos));
+            location.reload();
+          } else if (tipo === 'lugar') {
+            lugares.splice(index, 1);
+            localStorage.setItem('misLugares', JSON.stringify(lugares));
+            location.reload();
+          }
+        }
+      });
+    });
+
+    function cerrarSesion() {
+      fetch('logout.php') // o el endpoint que tengas
+        .then(() => {
+          localStorage.clear();
+          window.location.href = 'Registro.html'; // o login.html
+        });
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+

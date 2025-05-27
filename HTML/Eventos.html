@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventos Disponibles</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 5rem;
+    }
+
+    .Eventos {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .titulo {
+      font-size: 2rem;
+      color: #0047ab;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .evento-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .evento-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.15);
+    }
+
+    .evento-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+      transition: filter 0.3s ease;
+    }
+    .evento-card:hover img {
+      filter: brightness(0.9);
+    }
+
+    .evento-info {
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .evento-info h3 {
+      font-size: 1.4rem;
+      color: #0047ab;
+      font-weight: 700;
+    }
+
+    .evento-info a.btn {
+      background-color: #0077ff;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .evento-info a.btn:hover {
+      background-color: #005bb5;
+    }
+
+    /* Layout grid para pantallas grandes */
+    @media (min-width: 700px) {
+      .Eventos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .Eventos {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Bottom nav */
+     .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="Eventos">
+    <div class="evento-card">
+      <img src="../IMG/LINKINPARK.jpg" alt="From Zero!">
+      <div class="evento-info">
+        <h3>From Zero!<br>World Tour</h3>
+        <a href="info_eventosLP.html" class="btn">Más información</a>
+        <a href="#" class="btn favorito-btn" data-evento="From Zero! World Tour" data-img="../IMG/LINKINPARK.jpg" data-link="info_eventosLP.html">❤️ Agregar a favoritos</a>
+      </div>
+    </div>
+
+    <div class="evento-card">
+      <img src="../IMG/Green.jpeg" alt="Green Day">
+      <div class="evento-info">
+        <h3>Green Day!<br>Stadium Tour</h3>
+        <a href="info_eventosGD.html" class="btn">Más información</a>
+        <a href="#" class="btn favorito-btn" data-evento="Green Day! Stadium Tour" data-img="../IMG/Green.jpeg" data-link="info_eventosGD.html">❤️ Agregar a favoritos</a>
+      </div>
+    </div>
+
+    
+    <div class="evento-card">
+    <img src="../IMG/calamaro.jpg" alt="Andrés Calamaro">
+    <div class="evento-info">
+      <h3>Andrés Calamaro<br>Agenda 1990 Tour</h3>
+      <a href="info_eventosMT.html" class="btn">Más información</a>
+      <a href="#" class="btn favorito-btn" data-evento="Andrés Calamaro - Agenda 1990 Tour" data-img="../IMG/descarga (2).jpeg" data-link="info_eventosMT.html">❤️ Agregar a favoritos</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Agrega más eventos aquí si deseas -->
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const favButtons = document.querySelectorAll('.favorito-btn');
+
+      favButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          const nombre = button.dataset.evento;
+          const img = button.dataset.img;
+          const link = button.dataset.link;
+
+          let eventosGuardados = JSON.parse(localStorage.getItem('misEventos')) || [];
+
+          const yaExiste = eventosGuardados.some(ev => ev.nombre === nombre);
+          if (yaExiste) {
+            alert('Este evento ya está en favoritos.');
+            return;
+          }
+
+          eventosGuardados.push({ nombre, img, link });
+          localStorage.setItem('misEventos', JSON.stringify(eventosGuardados));
+          alert('Evento agregado a favoritos.');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+

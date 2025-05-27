@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro - Tour Vision</title>
+  <link rel="stylesheet" href="../CSS/Registro.css" />
+</head>
+<body>
+  <div class="formulario-registro">
+    <div class="form-card">
+      <h1 class="titulo">
+        T<span class="globo">🌍</span>UR<br />VISION
+      </h1>
+      <button class="boton amarillo">REGISTRAR</button>
+      <h3>BIENVENIDO A TOUR VISION</h3>
+      <form action="../PHP/procesar_registro.php" method="POST">
+        <input type="email" name="correo" placeholder="Correo" required />
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="text" name="apellido" placeholder="Apellido" required />
+        <input type="password" name="contrasena" placeholder="Contraseña" required />
+        <button type="submit" class="boton gris">REGISTRAR</button>
+      </form>
+      <a href="InicioSesion.html" class="link">¿Ya tienes una cuenta? Inicia Sesión</a>
+    </div>
+  </div>
+</body>
+</html>
+

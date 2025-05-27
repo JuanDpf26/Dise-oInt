@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información Eventos</title>
+  <link rel="stylesheet" href="../CSS/info_eventos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    /* Bottom Navigation Styles */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* RA Container */
+    #ra-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      z-index: 1100;
+      padding: 20px 10px 70px; /* espacio para botón sticky */
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    /* Sketchfab wrapper */
+    #ra-container .sketchfab-embed-wrapper {
+      width: 95vw;
+      max-width: 900px;
+      height: 75vh;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      border: 3px solid #0047ab;
+    }
+
+    /* iframe inside */
+    #ra-container iframe {
+      width: 100% !important;
+      height: 100% !important;
+      border: none;
+      border-radius: 15px;
+      display: block;
+    }
+
+    /* Description below iframe */
+    .ra-info {
+      margin-top: 20px;
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    /* Close RA button */
+    #close-ra {
+      position: sticky;
+      bottom: 10px;
+      align-self: center;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background-color: #e53935;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      max-width: 95vw;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+      z-index: 1200;
+      flex-shrink: 0;
+    }
+
+    #close-ra:hover {
+      background-color: #c62828;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      #ra-container .sketchfab-embed-wrapper {
+        height: 60vh;
+      }
+
+      #close-ra {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="Eventos.html" class="flecha"><i class="fas fa-chevron-left"></i></a>
+    <h1>Información Eventos</h1>
+    <span class="menu"><i class="fas fa-ellipsis-v"></i></span>
+  </header>
+
+  <main class="contenido">
+    <div class="tarjeta">
+      <img src="../IMG/Green.jpeg" alt="Green Day en Bogotá" class="imagen-evento" />
+      <h2>🎸 Green Day<br />📍 Saviors Tour 2025 - Bogotá</h2>
+      <div class="estrellas">
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+      </div>
+      <p class="descripcion">
+        💥 ¡Green Day regresa a Colombia!<br /><br />
+        📅 <strong>Fecha:</strong> 24 de agosto de 2025<br />
+        🕗 <strong>Hora:</strong> 8:00 p.m.<br />
+        🏟️ <strong>Lugar:</strong> Viva Claro - Bogotá<br /><br />
+        🎶 Disfruta de sus himnos como <em>“American Idiot”</em>, <em>“Boulevard of Broken Dreams”</em>, y nuevas canciones de su álbum <strong>Saviors</strong>.<br />
+        🚨 ¡Una noche de punk rock que no te puedes perder!
+      </p>
+      <button class="boton" onclick="comprarBoletas()">🎫 COMPRAR BOLETAS</button>
+    </div>
+
+    <div class="tarjeta" style="text-align: center;">
+      <h3>🕶️ Visualiza el escenario en Realidad Aumentada</h3>
+      <p>Haz clic para explorar una experiencia 3D interactiva del escenario del concierto.</p>
+      <button class="boton" onclick="activarRA()">👓 ACTIVAR RA</button>
+    </div>
+  </main>
+
+  <!-- Contenedor de RA -->
+  <div id="ra-container">
+    <div class="sketchfab-embed-wrapper">
+      <iframe title="Forum + Tarima v1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        src="https://sketchfab.com/models/7318f6becdf2474badf959156162f9b9/embed"></iframe>
+      <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+        <a href="https://sketchfab.com/3d-models/forum-tarima-v1-7318f6becdf2474badf959156162f9b9?utm_medium=embed&utm_campaign=share-popup&utm_content=7318f6becdf2474badf959156162f9b9"
+          target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Forum + Tarima v1</a> by
+        <a href="https://sketchfab.com/Nowis3D?utm_medium=embed&utm_campaign=share-popup&utm_content=7318f6becdf2474badf959156162f9b9"
+          target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Nowis 3D</a> on
+        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=7318f6becdf2474badf959156162f9b9" target="_blank"
+          rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+      </p>
+    </div>
+
+    <div class="ra-info">
+      <p><strong>Escenario del Saviors Tour 2025</strong><br />Interactúa, explora todos los ángulos y sumérgete en la experiencia del show.</p>
+    </div>
+
+    <button id="close-ra">❌ Cerrar RA</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br />INICIO</a>
+    <a href="Eventos.html">🎫<br />EVENTOS</a>
+    <a href="Turismo.html">🧭<br />TURISMO</a>
+    <a href="Perfil.html">👤<br />PERFIL</a>
+  </nav>
+
+  <script>
+    function comprarBoletas() {
+      const confirmar = confirm("Serás redireccionado a la página oficial para comprar las boletas. ¿Deseas continuar?");
+      if (confirmar) {
+        window.location.href = "https://ticketlive.com.co/co/conciertos/green-day-en-concierto-2025-bogota/";
+      }
+    }
+
+    function activarRA() {
+      document.getElementById('ra-container').style.display = 'flex';
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('close-ra').addEventListener('click', () => {
+      document.getElementById('ra-container').style.display = 'none';
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+
+

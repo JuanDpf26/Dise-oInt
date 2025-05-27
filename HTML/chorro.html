@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chorro de Quevedo</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f5f9;
+    }
+
+    .detalle-lugar {
+      max-width: 430px;
+      margin: 0 auto;
+      padding-bottom: 70px;
+    }
+
+    .imagen-top img {
+      width: 100%;
+      height: auto;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .volver {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #2a7ae2;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 10;
+    }
+
+    .info-lugar {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-top: -25px;
+      padding: 20px;
+    }
+
+    .info-lugar h2 {
+      font-size: 1.8rem;
+      margin: 0 0 10px;
+    }
+
+    .ra-button {
+      display: block;
+      width: 100%;
+      background-color: #2a7ae2;
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .ra-button:hover {
+      background-color: #1c5fc4;
+    }
+
+    .rating {
+      margin: 10px 0;
+      color: #444;
+    }
+
+    .leer-mas {
+      display: inline-block;
+      color: #2a7ae2;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .etiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .etiquetas span {
+      background: #e2edff;
+      color: #1a4db0;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .galeria {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .galeria img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .bottom-nav a:hover {
+      color: #2a7ae2;
+    }
+
+    #ra-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 10px;
+      overflow-y: auto;
+    }
+
+    model-viewer {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      background: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .ra-info {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    #close-ra {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e53935;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #close-ra:hover {
+      background-color: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="detalle-lugar">
+    <div class="imagen-top">
+      <img src="../IMG/chorro2.jpeg" alt="Chorro de Quevedo">
+      <a href="Turismo.html" class="volver">←</a>
+    </div>
+
+    <div class="info-lugar">
+      <h2>Chorro de Quevedo</h2>
+      <button class="ra-button" id="btn-ra">✨ Activar Realidad Aumentada</button>
+      <p class="rating">⭐ 4.5 (3585 Reseñas)</p>
+      <p>El Chorro de Quevedo es una emblemática plazoleta en La Candelaria, famosa por su historia, arte y cultura.</p>
+      <a href="MostrarMasCH.html" class="leer-mas">Leer más</a>
+
+      <h3>Actividades / Atracciones</h3>
+      <div class="etiquetas">
+  <span>🏛️ Cultura</span>
+  <span>🎨 Arte callejero</span>
+  <span>🧶 Artesanías</span>
+  <span>📜 Historia</span>
+</div>
+
+      <div class="galeria">
+        <img src="../IMG/Artesania.jpg" alt="Artesanía">
+        <img src="../IMG/cultura.jpeg" alt="Cultura">
+        <img src="../IMG/chorro2.jpeg" alt="Chorro">
+      </div>
+    </div>
+  </div>
+
+  <div id="ra-container">
+    <div class="sketchfab-embed-wrapper"> <iframe title="Chorro" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9392a834c98a462d9d830d02ca3303a0/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/chorro-9392a834c98a462d9d830d02ca3303a0?utm_medium=embed&utm_campaign=share-popup&utm_content=9392a834c98a462d9d830d02ca3303a0" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Chorro </a> by <a href="https://sketchfab.com/KevinBone?utm_medium=embed&utm_campaign=share-popup&utm_content=9392a834c98a462d9d830d02ca3303a0" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> KevinBone </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=9392a834c98a462d9d830d02ca3303a0" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+
+    <div class="ra-info">
+      <h3>🪑 Chorro de Quevedo</h3>
+      <p><strong>📍 Dirección:</strong> Calle 13 #2-98, Bogotá</p>
+      <p><strong>⏰ Horario:</strong> Todos los días, 9:00 a.m. - 8:00 p.m.</p>
+      <p><strong>🎟️ Entrada:</strong> Gratuita</p>
+      <p><strong>📞 Contacto:</strong> +57 1 3374414</p>
+      <p><strong>🚶 Servicios:</strong> Tours guiados, Cafés, Espacios culturales</p>
+    </div>
+
+    <button id="close-ra">❌ Cerrar RA</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+  <script>
+    document.getElementById('btn-ra').addEventListener('click', () => {
+      document.getElementById('ra-container').style.display = 'flex';
+    });
+
+    document.getElementById('close-ra').addEventListener('click', () => {
+      document.getElementById('ra-container').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

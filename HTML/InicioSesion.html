@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar Sesión - Tour Vision</title>
+  <link rel="stylesheet" href="../CSS/Inicio.Sesion.css" />
+</head>
+<body>
+  <div class="formulario-login">
+    <div class="form-card">
+      <h1 class="titulo">
+        T<span class="globo">🌍</span>UR<br />VISION
+      </h1>
+      <button class="boton amarillo">INICIAR SESIÓN</button>
+      <h3>BIENVENIDO A TOUR VISION</h3>
+
+      <!-- ✅ CORRECTO: ahora apunta al archivo iniciar_sesion.php -->
+      <form action="../PHP/procesar_login.php" method="POST">
+        <input type="email" name="correo" placeholder="Correo" required />
+        <input type="password" name="contrasena" placeholder="Contraseña" required />
+        <button type="submit" class="boton gris">INICIAR SESIÓN</button>
+      </form>
+
+      <a href="Registro.html" class="link">¿No tienes cuenta? Regístrate</a>
+    </div>
+  </div>
+</body>
+</html>
+
+

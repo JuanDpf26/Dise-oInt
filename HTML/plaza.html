@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plaza de Bolívar</title>
+  <link rel="stylesheet" href="../CSS/Monserrate.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .detalle-lugar {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .imagen-top {
+      position: relative;
+    }
+
+    .imagen-top img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .volver {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #2a7ae2;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .info-lugar {
+      margin-top: 15px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .encabezado-lugar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .encabezado-lugar h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #222;
+    }
+
+    .ra-button {
+      align-self: flex-start;
+      background-color: #2a7ae2;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .ra-button:hover {
+      background-color: #1f5fcc;
+    }
+
+    .etiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .etiquetas span {
+      background-color: #e0ecff;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .galeria img {
+      width: calc(33.333% - 10px);
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .encabezado-lugar {
+        flex-direction: column;
+      }
+
+      .galeria img {
+        width: calc(50% - 10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .galeria img {
+        width: 100%;
+      }
+
+      .ra-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .leer-mas {
+      display: inline-block;
+      margin: 10px 0;
+      color: #2a7ae2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #ra-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      z-index: 1000;
+      padding: 20px 10px;
+      box-sizing: border-box;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    model-viewer {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      background: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .ra-info {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      color: #222;
+    }
+
+    .ra-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #2a7ae2;
+    }
+
+    .ra-info p {
+      font-size: 1rem;
+      margin: 6px 0;
+      line-height: 1.4;
+    }
+
+    #close-ra {
+      margin: 20px 0;
+      padding: 10px 20px;
+      background-color: #e53935;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #close-ra:hover {
+      background-color: #c62828;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="detalle-lugar">
+    <div class="imagen-top">
+      <img src="../IMG/plaza2.jpeg" alt="Plaza de Bolívar" />
+      <a href="Turismo.html" class="volver">←</a>
+    </div>
+
+    <div class="info-lugar">
+      <div class="encabezado-lugar">
+        <h2>Plaza de Bolívar</h2>
+        <button id="btn-ra" class="ra-button">✨ Activar Realidad Aumentada</button>
+      </div>
+      <p>⭐ 4.5 (3585 Reviews)</p>
+      <p>La Plaza de Bolívar es el corazón histórico y político de Bogotá.</p>
+      <a href="MostrarMasPL.html" class="leer-mas">Leer más</a>
+
+      <h3>Actividades/Atracciones</h3>
+      <div class="etiquetas">
+        <span>📜 Historia</span>
+        <span>🎉 Eventos</span>
+        <span>🏛️ Monumento</span>
+      </div>
+
+      <div class="galeria">
+        <img src="../IMG/historia.JPG" alt="Historia" />
+        <img src="../IMG/3X6RTWGIWJFJXAEYT6WWABZCEU.jpg" alt="Comida" />
+        <img src="../IMG/monumento.png" alt="Monumento" />
+      </div>
+    </div>
+  </div>
+
+  <div id="ra-container">
+    <model-viewer src="../Modelos3d/plaza.glb" alt="Modelo 3D de Plaza de Bolívar" ar
+      ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate environment-image="neutral" exposure="1"
+      shadow-intensity="1">
+    </model-viewer>
+
+    <div class="ra-info">
+      <h3>🏛️ Plaza de Bolívar</h3>
+      <p><strong>📍 Ubicación:</strong> Centro Histórico de Bogotá</p>
+      <p><strong>🏛️ Atractivos:</strong> Catedral, Palacio de Justicia, Capitolio</p>
+      <p><strong>🗓️ Eventos:</strong> Cívicos, Protestas, Festivales</p>
+      <p><strong>🕐 Horario:</strong> Abierto 24 horas</p>
+      <p><strong>👨‍👩‍👧‍👦 Ideal para:</strong> Familias, turistas, estudiantes</p>
+    </div>
+
+    <button id="close-ra">❌ Cerrar RA</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+  <script>
+    const btnRA = document.getElementById('btn-ra');
+    const raContainer = document.getElementById('ra-container');
+    const closeRA = document.getElementById('close-ra');
+
+    btnRA.addEventListener('click', () => {
+      raContainer.style.display = 'flex';
+      window.scrollTo(0, 0);
+    });
+
+    closeRA.addEventListener('click', () => {
+      raContainer.style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>

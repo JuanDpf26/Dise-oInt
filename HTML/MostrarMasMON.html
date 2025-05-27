@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información del Evento</title>
+  <link rel="stylesheet" href="../CSS/MostrarMas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+ <style>
+  .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+ </style>
+<body>
+
+  <header>
+    <a href="Turismo.html" class="flecha"><i class="fas fa-arrow-left"></i></a>
+    <h1>Monserrate</h1>
+    <span class="menu"><i class="fas fa-bars"></i></span>
+  </header>
+
+  <div class="contenido">
+    <img src="../IMG/MONSERRATE.jpg" alt="Monserrate" class="imagen-evento">
+
+    <p class="descripcion">
+      Monserrate es el cerro más icónico de Bogotá, ubicado a 3.152 metros sobre el nivel del mar. Es un destino turístico, religioso y natural con vistas panorámicas de la ciudad.
+    </p>
+
+    <div class="seccion">
+      <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+      <p><strong>Dirección:</strong> Carrera 2 Este No. 21-48, Bogotá, Colombia.</p>
+      <p><strong>Coordenadas:</strong> 4.605° N, 74.063° W</p>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-route"></i> ¿Cómo llegar?</h3>
+      <ul>
+        <li><strong>Teleférico:</strong> Trayecto de 4 minutos.</li>
+        <li><strong>Funicular:</strong> Trayecto de 8 minutos.</li>
+        <li><strong>A pie:</strong> 2.4 km de subida (aprox. 50 minutos).</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-clock"></i> Horarios</h3>
+      <ul>
+        <li><strong>Lunes a viernes:</strong> 6:30 a.m. - 11:30 p.m.</li>
+        <li><strong>Sábados:</strong> 6:30 a.m. - 4:30 p.m.</li>
+        <li><strong>Domingos y festivos:</strong> 5:30 a.m. - 5:00 p.m.</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-ticket-alt"></i> Precios (ida y regreso)</h3>
+      <ul>
+        <li><strong>Funicular o teleférico:</strong></li>
+        <li>🔸 <strong>Adultos:</strong> $23.000 COP</li>
+        <li>🔸 <strong>Niños (4 a 12 años):</strong> $14.000 COP</li>
+        <li>🔸 <strong>Adultos mayores:</strong> $14.000 COP</li>
+      </ul>
+    </div>
+
+    <div class="carrusel">
+      <img src="../IMG/vista1.jpg" alt="Vista 1">
+      <img src="../IMG/vista2.jpg" alt="Vista 2">
+      <img src="../IMG/vista 3.jpg" alt="Vista 3">
+      <img src="../IMG/vista4.jpg" alt="Vista 4">
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+</body>
+</html>

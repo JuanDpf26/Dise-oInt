@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tour Vision</title>
+  <link rel="stylesheet" href="../CSS/Main.Page.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="location-info">
+      <img src="../IMG/Shrek.jpeg" alt="Usuario" class="user-avatar">
+      <div>
+        <!-- Texto por defecto "Hola, invitado" -->
+        <p id="saludo">Hola, invitado</p>
+        <span>📍 Bogotá, Colombia</span>
+      </div>
+    </div>
+    <button class="menu-button" aria-label="Menú">☰</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Explora Bogotá como nunca antes</h2>
+      <p>Descubre experiencias únicas cerca de ti</p>
+      <a href="#" class="btn-primary">Explorar ahora</a>
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <div class="section-header">
+      <h3>Categorías</h3>
+      <a href="#">Ver todo</a>
+    </div>
+    <div class="categories">
+      <div class="category">
+        <img src="../IMG/LUGARES.jpeg" alt="Lugares">
+        <p>Lugares</p>
+      </div>
+      <div class="category">
+        <img src="../IMG/GASTRO.jpeg" alt="Gastronomía">
+        <p>Comida</p>
+      </div>
+      <div class="category">
+        <img src="../IMG/Cine.jpg" alt="Cine">
+        <p>Cine</p>
+      </div>
+      <div class="category">
+        <img src="../IMG/evento.jpeg" alt="Eventos">
+        <p>Eventos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lugares Populares -->
+  <section class="popular-places">
+    <div class="section-header">
+      <h3>Lugares populares</h3>
+      <a href="Turismo.html">Ver todo</a>
+    </div>
+    <div class="places-scroll">
+      <div class="place-card">
+        <img src="../IMG/Zona.jpeg" alt="Zona T">
+        <div class="place-info">
+          <p>Zona T</p>
+          <span>⭐ 4.5</span>
+        </div>
+      </div>
+      <div class="place-card">
+        <img src="../IMG/Lugares.jpg" alt="Plaza de Bolívar">
+        <div class="place-info">
+          <p>Plaza de Bolívar</p>
+          <span>⭐ 4.7</span>
+        </div>
+      </div>
+      <div class="place-card">
+        <img src="../IMG/Santa.jpeg" alt="Santa Bárbara">
+        <div class="place-info">
+          <p>Santa Bárbara</p>
+          <span>⭐ 4.6</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Restaurantes Populares -->
+  <section class="popular-places">
+    <div class="section-header">
+      <h3>Restaurantes populares</h3>
+      <a href="Restaurantes.html">Ver todo</a>
+    </div>
+    <div class="places-scroll">
+      <div class="place-card">
+        <img src="../IMG/res2.jpeg" alt="El Cielo">
+        <div class="place-info">
+          <p>El Cielo</p>
+          <span>⭐ 4.8</span>
+        </div>
+      </div>
+      <div class="place-card">
+        <img src="../IMG/res1.jpeg" alt="Andrés DC">
+        <div class="place-info">
+          <p>Andrés DC</p>
+          <span>⭐ 4.9</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hoteles Populares -->
+  <section class="popular-places">
+    <div class="section-header">
+      <h3>Hoteles populares</h3>
+      <a href="Hoteles.html">Ver todo</a>
+    </div>
+    <div class="places-scroll">
+      <div class="place-card">
+        <img src="../IMG/hotel1.jpeg" alt="Hotel Hilton">
+        <div class="place-info">
+          <p>Hotel Hilton</p>
+          <span>⭐ 4.6</span>
+        </div>
+      </div>
+      <div class="place-card">
+        <img src="../IMG/hotel2.jpeg" alt="W Bogotá">
+        <div class="place-info">
+          <p>W Bogotá</p>
+          <span>⭐ 4.7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Navegación principal">
+    <a href="MainPage.php" aria-label="Ir a inicio">🏠<br>INICIO</a>
+    <a href="Eventos.html" aria-label="Ver eventos">🎫<br>EVENTOS</a>
+    <a href="Turismo.html" aria-label="Ver turismo">🧭<br>TURISMO</a>
+    <a href="Perfil.html" aria-label="Ver perfil">👤<br>PERFIL</a>
+  </nav>
+
+  <script>
+    fetch('../PHP/get_user.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.nombre && data.apellido) {
+          document.getElementById('saludo').textContent = `Hola, ${data.nombre} ${data.apellido}`;
+        }
+        // Si no hay sesión activa, queda "Hola, invitado"
+      })
+      .catch(error => {
+        console.error('Error al obtener usuario:', error);
+      });
+  </script>
+
+</body>
+</html>
+
+
+

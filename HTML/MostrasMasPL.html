@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información del Evento</title>
+  <link rel="stylesheet" href="../CSS/MostrarMas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<style>
+  .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+ </style>
+<body>
+
+  <header>
+    <a href="Turismo.html" class="flecha"><i class="fas fa-arrow-left"></i></a>
+    <h1>Planetario de Bogotá</h1>
+    <span class="menu"><i class="fas fa-bars"></i></span>
+  </header>
+
+  <div class="contenido">
+    <img src="../IMG/PLAnetario.png" alt="Planetario de Bogotá" class="imagen-evento">
+
+    <p class="descripcion">
+      El Planetario de Bogotá es un centro cultural y científico que promueve el conocimiento del universo a través de exposiciones, proyecciones inmersivas, talleres y actividades interactivas para todas las edades.
+    </p>
+
+    <div class="seccion">
+      <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+      <p><strong>Dirección:</strong> Calle 26B #5-93, Bogotá, Colombia.</p>
+      <p><strong>Coordenadas:</strong> 4.6097° N, 74.0721° W</p>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-route"></i> ¿Cómo llegar?</h3>
+      <ul>
+        <li><strong>TransMilenio:</strong> Estación Museo Nacional (línea A).</li>
+        <li><strong>A pie:</strong> Desde el centro internacional, aproximadamente 10 minutos.</li>
+        <li><strong>Bus:</strong> Varias rutas del SITP pasan por la Carrera 7 y la Calle 26.</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-clock"></i> Horarios</h3>
+      <ul>
+        <li><strong>Martes a viernes:</strong> 8:00 a.m. - 5:00 p.m.</li>
+        <li><strong>Sábados, domingos y festivos:</strong> 10:00 a.m. - 6:00 p.m.</li>
+        <li><strong>Lunes:</strong> Cerrado (excepto festivos)</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-ticket-alt"></i> Precios</h3>
+      <ul>
+        <li>🔸 <strong>Entrada general:</strong> $6.000 COP</li>
+        <li>🔸 <strong>Estudiantes y niños:</strong> $5.000 COP</li>
+        <li>🔸 <strong>Adultos mayores:</strong> $4.000 COP</li>
+        <li>🔸 <strong>Proyecciones especiales:</strong> $10.000 - $15.000 COP</li>
+      </ul>
+    </div>
+
+    <div class="carrusel">
+      <img src="../IMG/exibi.jpeg" alt="Interior del Planetario">
+      <img src="../IMG/cupula.jpeg" alt="Cúpula de proyección">
+      <img src="../IMG/interior.jpg" alt="Exhibiciones">
+      <img src="../IMG/Espacial.jpg" alt="Eventos y talleres">
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+    
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+</body>
+</html>

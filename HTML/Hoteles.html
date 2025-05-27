@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoteles en Bogotá</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      padding-bottom: 70px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0047ab;
+      color: white;
+      padding: 1rem;
+    }
+
+    .search-bar {
+      padding: 1rem;
+      background-color: #eee;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    .seccion-hoteles {
+      padding: 1rem;
+    }
+
+    .tarjetas-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .tarjeta {
+      display: flex;
+      gap: 1rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-3px);
+    }
+
+    .tarjeta img {
+      width: 120px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .info p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .info span {
+      color: #ff9800;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .btn-ra {
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #0047ab;
+      color: white;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .btn-ra:hover {
+      background-color: #512da8;
+    }
+
+    #ra-modal {
+      display: none;
+      position: fixed;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 85%;
+      background: white;
+      border-radius: 12px;
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    #ra-modal model-viewer {
+      width: 100%;
+      height: 60%;
+    }
+
+    #ra-info {
+      padding: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    #close-modal {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px auto;
+      cursor: pointer;
+      display: block;
+    }
+
+    .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0047ab;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.6rem 0;
+  font-size: 0.8rem;
+  text-align: center;
+  border-top: 3px solid #003080;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+}
+
+.bottom-nav a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.bottom-nav a:hover {
+  color: #a3c4ff;
+}
+
+.bottom-nav a span:first-child {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+    .info a {
+      color: #5a2ea0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <button onclick="window.location.href='turismo.html'" style="background:none;border:none;color:white;font-size:1.2rem;">⬅</button>
+    <h2 style="margin:0;">Hoteles en Bogotá</h2>
+    <div style="width:24px;"></div>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="buscador" placeholder="🔍 Buscar hoteles..." oninput="filtrarHoteles()" />
+  </div>
+
+  <div class="seccion-hoteles">
+    <div class="tarjetas-vertical" id="lista-hoteles">
+
+      <!-- Hotel 1 -->
+      <div class="tarjeta" data-nombre="Andes Plaza">
+        <img src="../IMG/hotel1.jpeg" alt="Andes Plaza" />
+        <div class="info">
+          <p><strong>Hotel Andes Plaza</strong></p>
+          <span>★★★★☆</span>
+          <p>💲 Desde $180.000 por persona</p>
+          <p>📞 (1) 654 3210</p>
+          <p>🌐 <a href="https://www.hotelandesplaza.co" target="_blank">Sitio web</a></p>
+          <button class="btn-ra" onclick="abrirRA('../Modelos3d/melodia_city_hotel.glb', `🏨 <b>Hotel Andes Plaza</b><br>📍 Calle 100 #19A-83, Bogotá<br>🕒 Check-in: 3:00 PM | Check-out: 12:00 PM<br>💲 Desde $180.000 por persona<br>📞 Tel: (1) 654 3210<br>🌐 <a href='https://www.hotelandesplaza.co/' target='_blank'>www.hotelandesplaza.co/</a><br>🛎️ Servicios: WiFi, parqueadero, restaurante, gimnasio, centro de negocios`)">Ver en RA</button>
+        </div>
+      </div>
+
+      <!-- Hotel 2 -->
+      <div class="tarjeta" data-nombre="Bogotá 100">
+        <img src="../IMG/hotel2.jpeg" alt="Bogotá 100" />
+        <div class="info">
+          <p><strong>Hotel Bogotá 100</strong></p>
+          <span>★★★☆☆</span>
+          <p>💲 Desde $140.000 por persona</p>
+          <p>📞 (1) 789 4321</p>
+             <p>🌐 <a href="https://www.harrysasson.com" target="_blank">Sitio web</a></p>
+          <button class="btn-ra" onclick="abrirRA('../Modelos3d/hotel.glb', `🏨 <b>Hotel Bogotá 100</b><br>📍 Calle 100 #14-26, Bogotá<br>🕒 Check-in: 2:00 PM | Check-out: 11:00 AM<br>💲 Desde $140.000 por persona<br>📞 Tel: (1) 789 4321<br>🌐 <a href='https://www.bogota100.com/' target='_blank'>www.bogota100.com/</a><br>🛎️ Servicios: Restaurante, TV cable, aire acondicionado, recepción 24h`)">Ver en RA</button>
+        </div>
+      </div>
+
+      <!-- Hotel 3 -->
+      <div class="tarjeta" data-nombre="NH Collection">
+        <img src="../IMG/hotel3.jpg" alt="NH Collection" />
+        <div class="info">
+          <p><strong>NH Collection Royal</strong></p>
+          <span>★★★★★</span>
+          <p>💲 Desde $250.000 por persona</p>
+          <p>📞 (1) 321 6789</p>
+          <p>🌐 <a href="https://www.nh-hotels.com" target="_blank">Sitio web</a></p>
+          <button class="btn-ra" onclick="abrirRA('../Modelos3d/hotel_exterior.glb', `🏨 <b>NH Collection Royal</b><br>📍 Calle 113 #7-65, Bogotá<br>🕒 Check-in: 3:00 PM | Check-out: 12:00 PM<br>💲 Desde $250.000 por persona<br>📞 Tel: (1) 321 6789<br>🌐 <a href='https://www.nh-hotels.com' target='_blank'>//www.nh-hotels.com</a><br>🛎️ Servicios: Spa, room service, restaurante gourmet, bar en terraza`)">Ver en RA</button>
+        </div>
+      </div>
+
+      <!-- Hotel 4 -->
+      <div class="tarjeta" data-nombre="Hilton">
+        <img src="../IMG/hotel4.jpg" alt="Hilton" />
+        <div class="info">
+          <p><strong>Hilton Bogotá</strong></p>
+          <span>★★★★★</span>
+          <p>💲 Desde $280.000 por persona</p>
+          <p>📞 (1) 444 9999</p>
+          <p>🌐 <a href="https://www.hilton.com" target="_blank">Sitio web</a></p>
+          <button class="btn-ra" onclick="abrirRA('../Modelos3d/Hilton.glb', `🏨 <b>Hilton Bogotá</b><br>📍 Carrera 7 #72-41, Bogotá<br>🕒 Check-in: 4:00 PM | Check-out: 12:00 PM<br>💲 Desde $280.000 por persona<br>📞 Tel: (1) 444 9999<br>🌐 <a href='https://www.hilton.com/' target='_blank'>//www.hilton.com</a><br>🛎️ Servicios: Piscina, bar, business center, gimnasio, transporte aeropuerto`)">Ver en RA</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="ra-modal">
+    <model-viewer id="ra-modelo" src="" ar ar-modes="webxr scene-viewer quick-look" auto-rotate camera-controls></model-viewer>
+    <div id="ra-info"></div>
+    <button id="close-modal">Cerrar</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+  <script>
+    const raModal = document.getElementById('ra-modal');
+    const raModelo = document.getElementById('ra-modelo');
+    const raInfo = document.getElementById('ra-info');
+
+    function abrirRA(modelo, descripcion) {
+      raModelo.src = modelo;
+      raInfo.innerHTML = descripcion;
+      raModal.style.display = 'flex';
+    }
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+      raModal.style.display = 'none';
+      raModelo.src = ''; // limpia modelo al cerrar
+    });
+
+    function filtrarHoteles() {
+      const input = document.getElementById('buscador').value.toLowerCase();
+      const tarjetas = document.querySelectorAll('.tarjeta');
+
+      tarjetas.forEach(tarjeta => {
+        const nombre = tarjeta.dataset.nombre.toLowerCase();
+        tarjeta.style.display = nombre.includes(input) ? 'flex' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html> 
+
+

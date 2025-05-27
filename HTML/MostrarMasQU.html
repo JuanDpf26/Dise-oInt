@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información del Evento</title>
+  <link rel="stylesheet" href="../CSS/MostrarMas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<style>
+  .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+ </style>
+<body>
+
+  <header>
+    <a href="Turismo.html" class="flecha"><i class="fas fa-arrow-left"></i></a>
+    <h1>Quinta de Bolívar</h1>
+    <span class="menu"><i class="fas fa-bars"></i></span>
+  </header>
+
+  <div class="contenido">
+    <img src="../IMG/quinta2.jpeg" alt="Quinta de Bolívar" class="imagen-evento">
+
+    <p class="descripcion">
+      La Quinta de Bolívar es una casa museo ubicada en Bogotá que fue residencia del Libertador Simón Bolívar. Este lugar histórico permite conocer más sobre su vida, el proceso de independencia y la arquitectura colonial.
+    </p>
+
+    <div class="seccion">
+      <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+      <p><strong>Dirección:</strong> Calle 21 #4A-30, Bogotá, Colombia.</p>
+      <p><strong>Coordenadas:</strong> 4.6011° N, 74.0664° W</p>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-route"></i> ¿Cómo llegar?</h3>
+      <ul>
+        <li><strong>A pie:</strong> A pocos minutos del centro histórico y el cerro de Monserrate.</li>
+        <li><strong>TransMilenio:</strong> Estación Las Aguas o Museo del Oro (línea A).</li>
+        <li><strong>Bus:</strong> Rutas del SITP por la Carrera 3 y la Avenida Jiménez.</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-clock"></i> Horarios</h3>
+      <ul>
+        <li><strong>Martes a viernes:</strong> 9:00 a.m. - 5:00 p.m.</li>
+        <li><strong>Sábados y domingos:</strong> 10:00 a.m. - 4:00 p.m.</li>
+        <li><strong>Lunes:</strong> Cerrado</li>
+      </ul>
+    </div>
+
+    <div class="seccion">
+      <h3><i class="fas fa-ticket-alt"></i> Precios</h3>
+      <ul>
+        <li>🔸 <strong>Entrada general:</strong> $4.000 COP</li>
+        <li>🔸 <strong>Estudiantes:</strong> $3.000 COP</li>
+        <li>🔸 <strong>Niños y adultos mayores:</strong> Entrada gratuita</li>
+        <li>🔸 <strong>Domingos:</strong> Entrada gratuita para todos los visitantes</li>
+      </ul>
+    </div>
+
+    <div class="carrusel">
+      <img src="../IMG/qu1.jpg" alt="Jardines de la Quinta">
+      <img src="../IMG/qu2.jpeg" alt="Sala histórica">
+      <img src="../IMG/quinta.jpg" alt="Objetos de Bolívar">
+      <img src="../IMG/quinta2.jpeg" alt="Vista exterior">
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br>INICIO</a>
+ 
+    <a href="Eventos.html">🎫<br>EVENTOS</a>
+    <a href="Turismo.html">🧭<br>TURISMO</a>
+    <a href="Perfil.html">👤<br>PERFIL</a>
+  </nav>
+
+</body>
+</html>

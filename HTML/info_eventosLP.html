@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información Eventos</title>
+  <link rel="stylesheet" href="../CSS/info_eventos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    .menu {
+      display: none;
+    }
+    /* Contenedor RA */
+    #ra-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      z-index: 1000;
+      padding: 10px 0;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    #ra-container .sketchfab-embed-wrapper {
+      width: 95vw;
+      height: 75vh;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      border: 3px solid #0047ab;
+      max-width: none;
+      max-height: none;
+    }
+
+    #ra-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+    }
+
+    #ra-container .sketchfab-embed-wrapper p {
+      margin-top: 8px;
+      color: #333;
+      font-size: 13px;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    .ra-info {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #close-ra {
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #e53935;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      max-width: 95vw;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+      position: sticky;
+      bottom: 10px;
+      align-self: center;
+      z-index: 1100;
+    }
+
+    #close-ra:hover {
+      background-color: #c62828;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #0047ab;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #003080;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .bottom-nav a:hover {
+      color: #a3c4ff;
+    }
+    .bottom-nav a svg,
+    .bottom-nav a span:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="Eventos.html" class="flecha"><i class="fas fa-chevron-left"></i></a>
+    <h1>Información Eventos</h1>
+    <span class="menu"><i class="fas fa-ellipsis-v"></i></span>
+  </header>
+
+  <main class="contenido">
+    <div class="tarjeta">
+      <img src="../IMG/LINKINPARK.jpg" alt="Linkin Park Bogotá 2025" class="imagen-evento" />
+      <h2>🎤 Linkin Park<br />📍 From Zero World Tour 2025 - Bogotá</h2>
+      <div class="estrellas">
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+        <i class="fas fa-star estrella"></i>
+      </div>
+      <p class="descripcion">
+        ⚡ ¡Linkin Park regresa con fuerza a Colombia!<br /><br />
+        📅 <strong>Fecha:</strong> 25 de octubre de 2025<br />
+        🕗 <strong>Hora:</strong> 8:00 p.m.<br />
+        🏟️ <strong>Lugar:</strong> Vive Claro Distrito Creativo - Bogotá<br /><br />
+        🎶 Disfruta de clásicos como <em>“In the End”</em>, <em>“Numb”</em>, <em>“Papercut”</em> y material de su más reciente álbum.<br />
+        🔥 ¡Una noche que marcará historia en la escena del rock alternativo!
+      </p>
+      <button class="boton" onclick="comprarBoletas()">🎫 COMPRAR BOLETAS</button>
+    </div>
+
+    <div class="tarjeta" style="text-align: center;">
+      <h3>🕶️ Visualiza el escenario en Realidad Aumentada</h3>
+      <p>Haz clic para experimentar una vista 3D interactiva con RA.</p>
+      <button class="boton" onclick="activarRA()">👓 ACTIVAR RA</button>
+    </div>
+  </main>
+
+  <!-- Contenedor de Realidad Aumentada -->
+  <div id="ra-container">
+    <div class="sketchfab-embed-wrapper">
+      <iframe
+        title="TARIMA 2024 - PROPUESTA-v3 - CLEAN"
+        frameborder="0"
+        allowfullscreen
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking
+        execution-while-out-of-viewport
+        execution-while-not-rendered
+        web-share
+        src="https://sketchfab.com/models/b871cf477d5843e297aed4308a163d63/embed"
+      ></iframe>
+      <p>
+        <a
+          href="https://sketchfab.com/3d-models/tarima-2024-propuesta-v3-clean-b871cf477d5843e297aed4308a163d63?utm_medium=embed&utm_campaign=share-popup&utm_content=b871cf477d5843e297aed4308a163d63"
+          target="_blank"
+          rel="nofollow"
+          style="font-weight: bold; color: #1CAAD9;"
+          >TARIMA 2024 - PROPUESTA-v3 - CLEAN</a
+        >
+        by
+        <a
+          href="https://sketchfab.com/Nowis3D?utm_medium=embed&utm_campaign=share-popup&utm_content=b871cf477d5843e297aed4308a163d63"
+          target="_blank"
+          rel="nofollow"
+          style="font-weight: bold; color: #1CAAD9;"
+          >Nowis 3D</a
+        >
+        on
+        <a
+          href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=b871cf477d5843e297aed4308a163d63"
+          target="_blank"
+          rel="nofollow"
+          style="font-weight: bold; color: #1CAAD9;"
+          >Sketchfab</a
+        >
+      </p>
+    </div>
+    <div class="ra-info">
+      <p>
+        <strong>Escenario del From Zero World Tour 2025 en 3D</strong
+        ><br />
+        Interactúa, observa desde todos los ángulos y prepárate para el show.
+      </p>
+    </div>
+    <button id="close-ra">❌ Cerrar RA</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="MainPage.html">🏠<br />INICIO</a>
+    <a href="Eventos.html">🎫<br />EVENTOS</a>
+    <a href="Turismo.html">🧭<br />TURISMO</a>
+    <a href="Perfil.html">👤<br />PERFIL</a>
+  </nav>
+
+  <script>
+    function comprarBoletas() {
+      const confirmar = confirm(
+        "Serás redireccionado a la página oficial para comprar las boletas. ¿Deseas continuar?"
+      );
+      if (confirmar) {
+        window.location.href =
+          "https://ticketlive.com.co/co/conciertos/linkin-park-from-zero-world-tour-2025-bogota/";
+      }
+    }
+
+    function activarRA() {
+      document.getElementById("ra-container").style.display = "flex";
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById("close-ra").addEventListener("click", () => {
+      document.getElementById("ra-container").style.display = "none";
+    });
+  </script>
+</body>
+</html>
+
+
